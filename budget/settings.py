@@ -34,8 +34,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
     'items.apps.ItemsConfig',
-    'transactions.apps.TransactionsConfig'
-    'units.apps.UnitsConfig'
+    'transactions.apps.TransactionsConfig',
+    'units.apps.UnitsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
