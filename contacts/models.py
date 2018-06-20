@@ -11,3 +11,6 @@ class Address(models.Model):
     state = models.CharField('State', max_length=255)
     zip_code = models.CharField('Zip Code', max_length=255)
     phone_number = models.CharField('Phone Number', max_length=255)
+
+    class Meta:
+        verbose_name_plural = "addresses"
