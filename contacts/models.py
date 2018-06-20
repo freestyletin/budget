@@ -1,7 +1,7 @@
 from django.db import models
 
 class Contact(models.Model):
-    name = models.CharField('Contact')
+    name = models.CharField('Contact', max_length=255)
 
 class Address(models.Model):
     street_number = models.CharField('Street Number', max_length=255)

@@ -1,7 +1,7 @@
 from django.db import models
 
 class GenericItem(models.Model):
-    name = models.CharField('Item')
+    name = models.CharField('Item', max_length=255)
 
 class Item(models.Model):
     upc = models.CharField('UPC Code', max_length=255)
