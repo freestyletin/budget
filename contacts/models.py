@@ -4,10 +4,10 @@ class Contact(models.Model):
     name = models.CharField('Contact')
 
 class Address(models.Model):
-    street_number = models.CharField('Street Number')
-    street_cardinal = models.Charfield('Street Cardinal')
-    street_class = models.CharField('Street Class')
-    city = models.CharField('City')
-    state = models.CharField('State')
-    zip_code = models.CharField('Zip Code')
-    phone_number = models.CharField('Phone Number')
+    street_number = models.CharField('Street Number', max_length=255)
+    street_cardinal = models.Charfield('Street Cardinal', max_length=255)
+    street_class = models.CharField('Street Class', max_length=255)
+    city = models.CharField('City', max_length=255)
+    state = models.CharField('State', max_length=255)
+    zip_code = models.CharField('Zip Code', max_length=255)
+    phone_number = models.CharField('Phone Number', max_length=255)
