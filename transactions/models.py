@@ -13,7 +13,7 @@ class Transaction(models.Model):
     contact_custom = models.ForeignKey('contacts.Contact', null=True, on_delete=models.SET_NULL, verbose_name="custom contact")
     account_from = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="from account")
     account_to = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="to account")
-    address = models.ForeignKey('accounts.Address', null=True, on_delete=models.SET_NULL)
+    address = models.ForeignKey('contacts.Address', null=True, on_delete=models.SET_NULL)
 
 class TransactionDetail(models.Model):
     quantity = models.DecimalField('Quantity', max_digits=10, decimal_places=5)
