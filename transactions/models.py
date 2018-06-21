@@ -10,9 +10,10 @@ class Transaction(models.Model):
     bags_total = models.DecimalField('Bags Total', max_digits=10, decimal_places=2)
     donation_total = models.DecimalField('Donation Total', max_digits=10, decimal_places=2)
     grand_total_custom = models.DecimalField('Custom Grand Total', max_digits=10, decimal_places=2)
-    contact_custom = models.ForeignKey('contacts.Contact', on_delete=SET_NULL, verbose_name="custom contact")
-    account_from = models.ForeignKey('accounts.Account', on_delete=SET_NULL, verbose_name="from account")
-    account_to = models.ForeignKey('accounts.Account', on_delete=SET_NULL, verbose_name="to account")
+    contact_custom = models.ForeignKey('contacts.Contact', null=True, on_delete=models.SET_NULL, verbose_name="custom contact")
+    account_from = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="from account")
+    account_to = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="to account")
+    address = models.ForeignKey('accounts.Address', null=True, on_delete=models.SET_NULL)
 
 class TransactionDetail(models.Model):
     quantity = models.DecimalField('Quantity', max_digits=10, decimal_places=5)
@@ -22,3 +23,4 @@ class TransactionDetail(models.Model):
     price_extended_custom = models.DecimalField('Custom Extended Price', max_digits=10, decimal_places=5)
     crv_per_custom = models.DecimalField('Custom CRV Per', max_digits=10, decimal_places=5)
     tax_per_custom = models.DecimalField('Custom Tax Per', max_digits=10, decimal_places=5)
+    transaction = models.ForeignKey('Transaction', null=True, on_delete=models.SET_NULL)
