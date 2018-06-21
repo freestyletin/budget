@@ -3,7 +3,7 @@ from django.db import models
 class GenericItem(models.Model):
     name = models.CharField('Item', max_length=255)
     unit = models.ForeignKey('units.Unit', null=True, on_delete=models.SET_NULL)
-    base_unit_custom = models.ForeignKey('units.Unit', null=True, on_delete=models.SET_NULL)
+    base_unit_custom = models.ForeignKey('units.Unit', null=True, on_delete=models.SET_NULL, related_name='genericitem_as_base_unit_custom_set')
     unit_factor_custom = models.DecimalField('Custom Unit Factor', max_digits=10, decimal_places=5)
 
 class Item(models.Model):
@@ -12,6 +12,6 @@ class Item(models.Model):
     description = models.CharField('Description', max_length=255)
     milliliters_custom = models.DecimalField('Custom Milliliters', max_digits=10, decimal_places=5)
     unit_factor_custom = models.DecimalField('Custom Unit Factor', max_digits=10, decimal_places=5)
-    generic_item = models.ForeignKey('GenericItem', null=True, on_delete=models.SET_NULL, verbose_name="generic item")
-    unit = models.ForeignKey('units.Unit', null=True, on_delete=models.SET_NULL)
-    base_unit_custom = models.ForeignKey('units.Unit', null=True, on_delete=models.SET_NULL, verbose_name="custom base unit")
+    generic_item = models.ForeignKey('GenericItem', null=True, on_delete=models.SET_NULL, verbose_name="generic item", related_name='item_as_generic_item_set')
+    unit = models.ForeignKey('units.Unit', null=True, on_delete=models.SET_NULL, related_name='item_as_unit_set')
+    base_unit_custom = models.ForeignKey('units.Unit', null=True, on_delete=models.SET_NULL, verbose_name='item_as_base_unit_custom_set')

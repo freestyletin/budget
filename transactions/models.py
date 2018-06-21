@@ -10,10 +10,10 @@ class Transaction(models.Model):
     bags_total = models.DecimalField('Bags Total', max_digits=10, decimal_places=2)
     donation_total = models.DecimalField('Donation Total', max_digits=10, decimal_places=2)
     grand_total_custom = models.DecimalField('Custom Grand Total', max_digits=10, decimal_places=2)
-    contact_custom = models.ForeignKey('contacts.Contact', null=True, on_delete=models.SET_NULL, verbose_name="custom contact")
-    account_from = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="from account")
-    account_to = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="to account")
-    address = models.ForeignKey('contacts.Address', null=True, on_delete=models.SET_NULL)
+    contact_custom = models.ForeignKey('contacts.Contact', null=True, on_delete=models.SET_NULL, verbose_name="custom contact", related_name='transaction_as_contact_custom_set')
+    account_from = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="from account", related_name='transaction_as_account_from_set')
+    account_to = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="to account", related_name='transaction_as_account_to_set')
+    address = models.ForeignKey('contacts.Address', null=True, on_delete=models.SET_NULL, related_name='transaction_as_address_set')
 
 class TransactionDetail(models.Model):
     quantity = models.DecimalField('Quantity', max_digits=10, decimal_places=5)
@@ -23,4 +23,4 @@ class TransactionDetail(models.Model):
     price_extended_custom = models.DecimalField('Custom Extended Price', max_digits=10, decimal_places=5)
     crv_per_custom = models.DecimalField('Custom CRV Per', max_digits=10, decimal_places=5)
     tax_per_custom = models.DecimalField('Custom Tax Per', max_digits=10, decimal_places=5)
-    transaction = models.ForeignKey('Transaction', null=True, on_delete=models.SET_NULL)
+    transaction = models.ForeignKey('Transaction', null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_transaction_set')

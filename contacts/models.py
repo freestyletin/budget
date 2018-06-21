@@ -12,7 +12,7 @@ class Address(models.Model):
     state = models.CharField('State', max_length=255)
     zip_code = models.CharField('Zip Code', max_length=255)
     phone_number = models.CharField('Phone Number', max_length=255)
-    contact = models.ForeignKey('Contact', null=True, on_delete=models.SET_NULL)
+    contact = models.ForeignKey('Contact', null=True, on_delete=models.SET_NULL, related_name='address_as_contact_set')
 
     class Meta:
         verbose_name_plural = "addresses"
