@@ -15,6 +15,9 @@ class Transaction(models.Model):
     account_to = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="to account", related_name='transaction_as_account_to_set')
     address = models.ForeignKey('contacts.Address', null=True, on_delete=models.SET_NULL, related_name='transaction_as_address_set')
 
+    def __str__(Self):
+        return self.contact_custom
+
 class TransactionDetail(models.Model):
     quantity = models.DecimalField('Quantity', max_digits=10, decimal_places=5)
     price_regular_custom = models.DecimalField('Custom Regular Price', max_digits=10, decimal_places=5)
@@ -24,3 +27,6 @@ class TransactionDetail(models.Model):
     crv_per_custom = models.DecimalField('Custom CRV Per', max_digits=10, decimal_places=5)
     tax_per_custom = models.DecimalField('Custom Tax Per', max_digits=10, decimal_places=5)
     transaction = models.ForeignKey('Transaction', null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_transaction_set')
+
+    def __str__(self):
+        return self.price_extended_custom

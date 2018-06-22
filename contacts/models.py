@@ -14,5 +14,8 @@ class Address(models.Model):
     phone_number = models.CharField('Phone Number', max_length=255, blank=True)
     contact = models.ForeignKey('Contact', null=True, on_delete=models.SET_NULL, related_name='address_as_contact_set')
 
+    def __str__(self):
+        return '%s %s %s %s' % (self.street_number, self.street_cardinal, self.street_name, self.street_class)
+
     class Meta:
         verbose_name_plural = "addresses"
