@@ -3,6 +3,9 @@ from django.db import models
 class Contact(models.Model):
     name = models.CharField('Contact', max_length=255)
 
+    def __str__(self):
+        return self.name
+
 class Address(models.Model):
     street_number = models.CharField('Street Number', max_length=255, blank=True)
     street_cardinal = models.CharField('Street Cardinal', max_length=255, blank=True)
