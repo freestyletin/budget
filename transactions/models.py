@@ -13,7 +13,7 @@ class Transaction(models.Model):
     contact_custom = models.ForeignKey('contacts.Contact', null=True, on_delete=models.SET_NULL, verbose_name="custom contact", related_name='transaction_as_contact_custom_set')
     account_from = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="from account", related_name='transaction_as_account_from_set')
     account_to = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="to account", related_name='transaction_as_account_to_set')
-    address = models.ForeignKey('contacts.Address', null=True, on_delete=models.SET_NULL, related_name='transaction_as_address_set')
+    address = models.ForeignKey('contacts.Address', null=True, on_delete=models.SET_NULL, related_name='transaction_as_address_set', verbose_name="address")
 
     def __str__(Self):
         return self.contact_custom
@@ -26,7 +26,7 @@ class TransactionDetail(models.Model):
     price_extended_custom = models.DecimalField('Custom Extended Price', max_digits=10, decimal_places=5)
     crv_per_custom = models.DecimalField('Custom CRV Per', max_digits=10, decimal_places=5)
     tax_per_custom = models.DecimalField('Custom Tax Per', max_digits=10, decimal_places=5)
-    transaction = models.ForeignKey('Transaction', null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_transaction_set')
+    transaction = models.ForeignKey('Transaction', null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_transaction_set', verbose_name="transaction")
 
     def __str__(self):
         return self.price_extended_custom
