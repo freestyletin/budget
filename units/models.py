@@ -8,3 +8,9 @@ class Unit(models.Model):
 
     def __str__(self):
         return self.name
+
+    def unit_factor(self):
+        if self.subunit.quantity_per not Null:
+            return self.quantity_per * self.subunit.quantity_per
+        else:
+            return self.quantity_per
