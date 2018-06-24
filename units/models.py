@@ -6,7 +6,7 @@ class Unit(models.Model):
     subunit = models.ForeignKey('self', blank=True, null=True, on_delete=models.SET_NULL, related_name='unit_as_subunit_set', verbose_name="subunit")
     abbreviation = models.CharField('Abbreviation', max_length=255, blank=True)
 
-    unit_factor = Unit.object.select_related('subunit').filter(subunit=Unit.quantity_per)
+    unit_factor = Unit.object.select_related('quantity_per').filter(subunit=Unit.pk)
 
     def __str__(self):
         return self.name
