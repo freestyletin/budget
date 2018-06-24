@@ -6,7 +6,7 @@ class Unit(models.Model):
     subunit = models.ForeignKey('self', blank=True, null=True, on_delete=models.SET_NULL, related_name='unit_as_subunit_set', verbose_name="subunit")
     abbreviation = models.CharField('Abbreviation', max_length=255, blank=True)
 
-    unit_factor = Unit.object.select_related('quantity_per').filter(subunit=Unit.pk)
+#    unit_factor = Unit.object.select_related('quantity_per').filter(subunit=Unit.pk)
 
     def __str__(self):
         return self.name
@@ -16,3 +16,7 @@ class Unit(models.Model):
 #            return self.quantity_per * self.subunit.quantity_per
 #        else:
 #            return self.quantity_per
+
+    def unit_factor(self):
+        subunit_selected = Unit.objects.filter(unit=subunit)
+        return unit.quantity_per
