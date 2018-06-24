@@ -6,11 +6,14 @@ class Unit(models.Model):
     subunit = models.ForeignKey('self', blank=True, null=True, on_delete=models.SET_NULL, related_name='unit_as_subunit_set', verbose_name="subunit")
     abbreviation = models.CharField('Abbreviation', max_length=255, blank=True)
 
-    unit_factor = unit.subunit.quantity_per * quantity_per
+    #unit_factor = unit.subunit.quantity_per * quantity_per
 
     def __str__(self):
         return self.name
 
+class UnitExtended(Unit):
+
+    unit_factor = unit.subunit.quantity_per * unit.quantity_per
 
 #    def unit_factor(self):
 #        if not self.subunit.quantity_per:
