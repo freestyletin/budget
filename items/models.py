@@ -21,7 +21,7 @@ class Item(models.Model):
     qty_test = models.DecimalField('Qty (Test)', max_digits=10, decimal_places=5, default=1)
 
     def unit_factor(self):
-        return qty_test * self.unit.quantity_per
+        return self.qty_test * self.unit.quantity_per
 
     def __str__(self):
         return self.description
