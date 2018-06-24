@@ -4,10 +4,10 @@
 
 {% if address_list %}
   <ul>
-    {% for contact in address_list %}
+    {% for address in address_list %}
     <li>{{ address.street_name }} - {{ address.city }}</li>
     {% endfor %}
   </ul>
 {% else %}
-  <p>No contacts are available.</p>
+  <p>No addresses are available.</p>
 {% endif %}
