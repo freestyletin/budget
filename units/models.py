@@ -11,12 +11,12 @@ class Unit(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def unit_factor(self):
+        return self.subunit.quantity_per * self.quantity_per
+
 #    def unit_factor(self):
 #        if not self.subunit.quantity_per:
 #            return self.quantity_per * self.subunit.quantity_per
 #        else:
 #            return self.quantity_per
-
-    def unit_factor(self):
-        subunit_selected = Unit.objects.filter(unit=subunit)
-        return unit.quantity_per
