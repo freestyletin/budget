@@ -21,4 +21,4 @@ class AddressIndexView(generic.ListView):
     template_name = 'addresses/index.html'
 
     def get_queryset(self):
-        return Address.objects.order_by('name')
+        return Address.objects.order_by('city')
