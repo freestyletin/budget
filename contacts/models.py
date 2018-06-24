@@ -2,6 +2,7 @@ from django.db import models
 
 class Contact(models.Model):
     name = models.CharField('Contact', max_length=255)
+    testfield = models.Charfield('test', max_length=255)
 
     def __str__(self):
         return self.name
@@ -16,6 +17,8 @@ class Address(models.Model):
     zip_code = models.CharField('Zip Code', max_length=255, blank=True)
     phone_number = models.CharField('Phone Number', max_length=255, blank=True)
     contact = models.ForeignKey('Contact', null=True, on_delete=models.SET_NULL, related_name='address_as_contact_set', verbose_name="contact")
+
+    #testfield = self.contact.testfield
 
     def __str__(self):
         return '%s - %s %s %s %s - %s' % (self.contact, self.street_number, self.street_cardinal, self.street_name, self.street_class, self.city)

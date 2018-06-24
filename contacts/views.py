@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-from .models import Unit
+from .models import Contact
 
 #def index(request):
 #    return HttpResponse("Hello, world. You're at the polls index.")
