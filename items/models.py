@@ -18,7 +18,7 @@ class Item(models.Model):
     generic_item = models.ForeignKey('GenericItem', blank=True, null=True, on_delete=models.SET_NULL, verbose_name="generic item", related_name='item_as_generic_item_set')
     unit = models.ForeignKey('units.Unit', null=True, on_delete=models.SET_NULL, related_name='item_as_unit_set', verbose_name="unit")
     base_unit_custom = models.ForeignKey('units.Unit', blank=True, null=True, on_delete=models.SET_NULL, related_name='item_as_base_unit_custom_set', verbose_name="custom base unit")
-    qty_test = models.DecimalField('Qty (Test)', max_digits=10, decimal_places=5)
+    qty_test = models.DecimalField('Qty (Test)', max_digits=10, decimal_places=5, default=1)
 
     def unit_factor(self):
         return qty_test * self.unit.quantity_per
