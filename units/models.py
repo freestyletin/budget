@@ -12,7 +12,6 @@ class Unit(models.Model):
         return self.name
 
 class UnitExtended(Unit):
-
     unit_factor = unit.subunit.quantity_per * unit.quantity_per
 
 #    def unit_factor(self):
