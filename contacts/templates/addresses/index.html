@@ -5,7 +5,7 @@
 {% if address_list %}
   <ul>
     {% for address in address_list %}
-    <li>{{ address.street_name }} - {{ address.city }} - {{ address.testfield }}</li>
+    <li>{{ address.street_name }} - {{ address.city }} - {{ address.contact.testfield }}</li>
     {% endfor %}
   </ul>
 {% else %}
