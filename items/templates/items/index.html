@@ -5,7 +5,7 @@
 {% if item_list %}
   <ul>
     {% for item in item_list %}
-    <li>{{ item.description }} - {{ item.unit }}</li>
+    <li>{{ item.description }} - {{ item.unit }} - {{ item.unit.subunit }}</li>
     {% endfor %}
   </ul>
 {% else %}
