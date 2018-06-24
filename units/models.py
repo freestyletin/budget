@@ -11,8 +11,8 @@ class Unit(models.Model):
     def __str__(self):
         return self.name
 
-class UnitExtended(Unit):
-    unit_factor = unit.subunit.quantity_per * unit.quantity_per
+#class UnitExtended(Unit):
+#    unit_factor = unit.subunit.quantity_per * unit.quantity_per
 
 #    def unit_factor(self):
 #        if not self.subunit.quantity_per:
