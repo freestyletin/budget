@@ -2,7 +2,7 @@ from django.db import models
 
 class Contact(models.Model):
     name = models.CharField('Contact', max_length=255)
-    testfield = models.Charfield('test', max_length=255)
+    testfield = models.CharField('test', max_length=255)
 
     def __str__(self):
         return self.name

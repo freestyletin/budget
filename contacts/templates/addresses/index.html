@@ -2,10 +2,10 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'units/style.css' %}" />
 
-{% if contact_list %}
+{% if address_list %}
   <ul>
-    {% for contact in contact_list %}
-    <li>{{ contact.name }} - {{ contact.testfield }}</li>
+    {% for contact in address_list %}
+    <li>{{ address.street_name }} - {{ address.city }}</li>
     {% endfor %}
   </ul>
 {% else %}
