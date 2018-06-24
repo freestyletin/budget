@@ -15,4 +15,4 @@ class IndexView(generic.ListView):
     template_name = 'items/index.html'
 
     def get_queryset(self):
-        return Item.objects.order_by('Description')
+        return Item.objects.order_by('description')
