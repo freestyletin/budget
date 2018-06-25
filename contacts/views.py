@@ -19,6 +19,7 @@ class IndexView(generic.ListView):
 
 class AddressIndexView(generic.ListView):
     template_name = 'contacts/index.html'
+    context_object_name = 'address_list'
 
     def get_queryset(self):
         return Address.objects.order_by('city')
