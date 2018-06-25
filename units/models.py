@@ -8,14 +8,19 @@ class Unit(models.Model):
 
     #unit_factor = unit.subunit.quantity_per * quantity_per
 
-    def unit_factor(self):
-        return self.unit_as_subunit_set.quantity_per
+#    def unit_factor(self):
+#        return self.unit_as_subunit_set.quantity_per
 
     def __str__(self):
         return self.name
 
-#class UnitExtended(Unit):
-#    unit_factor = unit.subunit.quantity_per * unit.quantity_per
+class UnitExtended(Unit):
+    class Meta:
+        proxy = True
+
+    def unit_factor(self):
+        return self.subunit.quantity_per * self.quantity_per
+
 
 #    def unit_factor(self):
 #        if not self.subunit.quantity_per:
