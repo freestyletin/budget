@@ -11,13 +11,3 @@
 {% else %}
   <p>No contacts are available.</p>
 {% endif %}
-
-{% if address_list %}
-  <ul>
-    {% for address in address_list %}
-    <li>{{ address.street_name }} - {{ address.city }} - {{ address.contact.testfield }}</li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>No addresses are available.</p>
-{% endif %}
