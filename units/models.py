@@ -14,8 +14,8 @@ class Unit(models.Model):
     def __str__(self):
         return self.name
 
-    def unit_factor(self):
-        return self.quantity_per * self.subunit.quantity_per
+#    def unit_factor(self):
+#        return self.quantity_per * self.subunit.quantity_per
 #class UnitExtended(Unit):
 #    class Meta:
 #        proxy = True
