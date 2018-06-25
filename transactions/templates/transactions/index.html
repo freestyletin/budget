@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'transactions/style.css' %}" />
+
+{% if transaction_list %}
+  <ul>
+    {% for transaction in transaction_list %}
+    <li>{{ transaction.date }} - {{ transaction.address }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No transacations are available.</p>
+{% endif %}
