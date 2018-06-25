@@ -5,7 +5,7 @@
 {% if unit_list %}
   <ul>
     {% for unit in unit_list %}
-    <li>{{ unit.name }} - {{ unit.subunit }} - {{ unit.subunit.quantity_per }} - {{ unit.quantity_per * unit.subunit.quantity_per }}</li>
+    <li>{{ unit.name }} - {{ unit.subunit }} - {{ unit.subunit.quantity_per }}</li>
     {% endfor %}
   </ul>
 {% else %}
