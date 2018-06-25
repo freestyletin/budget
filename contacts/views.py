@@ -18,7 +18,7 @@ class IndexView(generic.ListView):
         return Contact.objects.order_by('name')
 
 class AddressIndexView(generic.ListView):
-    template_name = 'addresses/index.html'
+    template_name = 'contacts/index.html'
 
     def get_queryset(self):
         return Address.objects.order_by('city')
