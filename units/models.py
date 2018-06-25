@@ -21,6 +21,9 @@ class UnitExtended(Unit):
     def unit_factor(self):
         return self.subunit.quantity_per * self.quantity_per
 
+    def __str__(self):
+        return self.name
+
 
 #    def unit_factor(self):
 #        if not self.subunit.quantity_per:
