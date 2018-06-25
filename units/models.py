@@ -14,15 +14,17 @@ class Unit(models.Model):
     def __str__(self):
         return self.name
 
-class UnitExtended(Unit):
-    class Meta:
-        proxy = True
-
-    def unit_factor(self):
-        return self.subunit.quantity_per * self.quantity_per
-
-    def __str__(self):
-        return self.name
+def unit_factor(self):
+    return unit.quantity_per * unit.subunit.quantity_per
+#class UnitExtended(Unit):
+#    class Meta:
+#        proxy = True
+#
+#    def unit_factor(self):
+#        return self.subunit.quantity_per * self.quantity_per
+#
+#    def __str__(self):
+#        return self.name
 
 
 #    def unit_factor(self):
