@@ -9,7 +9,7 @@ class Unit(models.Model):
     #unit_factor = unit.subunit.quantity_per * quantity_per
 
     def unit_factor(self):
-        return self.quantity_per * self.subunit.quantity_per
+        return self.subunit.quantity_per
 
     def __str__(self):
         return self.name
