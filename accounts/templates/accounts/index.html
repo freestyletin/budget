@@ -5,7 +5,7 @@
 {% if account_list %}
   <ul>
     {% for account in account_list %}
-    <li>{{ address.name }} - {{ account.card_number_last4 }}</li>
+    <li>{{ account.name }} - {{ account.card_number_last4 }}</li>
     {% endfor %}
   </ul>
 {% else %}
