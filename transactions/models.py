@@ -17,7 +17,7 @@ class Transaction(models.Model):
     address = models.ForeignKey('contacts.Address', null=True, on_delete=models.SET_NULL, related_name='transaction_as_address_set', verbose_name="address")
 
     def __str__(self):
-        return self.contact_custom
+        return self.contact_custom.name
 
 class TransactionDetail(models.Model):
     quantity = models.DecimalField('Quantity', max_digits=10, decimal_places=5)
