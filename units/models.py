@@ -32,7 +32,9 @@ class Unit(models.Model):
 #        return self.unit_as_subunit_set.quantity_per
 
     def unit_factor(self):
-        return self.subunit.quantity_per
+        if hasattr(self, 'subunit') and hasattr(self.subunit, 'quantity_per'):
+            return self.subunit.quantity_per * self.quantity_per
+        return 0
 
     def __str__(self):
         return self.name
