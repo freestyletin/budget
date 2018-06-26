@@ -16,7 +16,7 @@ class Transaction(models.Model):
     account_to = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="to account", related_name='transaction_as_account_to_set')
     address = models.ForeignKey('contacts.Address', null=True, on_delete=models.SET_NULL, related_name='transaction_as_address_set', verbose_name="address")
 
-    def __str__(Self):
+    def __str__(self):
         return self.contact_custom
 
 class TransactionDetail(models.Model):
