@@ -2,7 +2,7 @@ from django.db import models
 
 class Contact(models.Model):
     name = models.CharField('Contact', max_length=255)
-    testfield = models.CharField('test', max_length=255, default="test")
+#    testfield = models.CharField('test', max_length=255, default="test")
 
     def __str__(self):
         return self.name
@@ -18,9 +18,9 @@ class Address(models.Model):
     phone_number = models.CharField('Phone Number', max_length=255, blank=True)
     contact = models.ForeignKey('Contact', null=True, on_delete=models.SET_NULL, related_name='address_as_contact_set', verbose_name="contact")
 
-    @property
-    def testfield(self):
-        return self.contact.testfield
+#    @property
+#    def testfield(self):
+#        return self.contact.testfield
 
     def __str__(self):
         return '%s - %s %s %s %s - %s' % (self.contact, self.street_number, self.street_cardinal, self.street_name, self.street_class, self.city)
