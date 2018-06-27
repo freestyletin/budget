@@ -17,10 +17,10 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Transaction.objects.order_by('date')
 
-def edit_template(request):
+def edit_template(request, transaction_id):
     if request.method =='POST':
         form = TemplateForm(pk=request.POST)
-        if form.is_vaid():
+        if form.is_valid():
             model_instance = form.save(commit=FALSE)
             model_instance.timestamp = timezone.now()
             model_instance.save()
