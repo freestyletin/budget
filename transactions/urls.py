@@ -7,5 +7,5 @@ urlpatterns = [
     path('', views.TransactionListView.as_view(), name='index'),
     path('<int:pk>', views.TransactionDetailView.as_view(), name='detail'),
     path('create/', views.create_transaction, name='create'),
-    path('<int:pk>/edit/', views.UpdateView.as_view(), name='edit'),
+    path('<int:pk>/edit/', views.TransactionUpdateView.as_view(), name='edit'),
 ]
