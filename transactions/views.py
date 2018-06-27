@@ -16,10 +16,10 @@ class TransactionListView(generic.ListView):
     model = Transaction
     template_name = 'index.html'
 
-class DetailView(generic.DetailView):
+class TransactionDetailView(generic.DetailView):
     model = Transaction
-    
-class UpdateView(generic.UpdateView):
+
+class TransactionUpdateView(generic.UpdateView):
     model = Transaction
     fields = '__all__'
     template_name = 'edit.html'
