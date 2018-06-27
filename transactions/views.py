@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import Http404
 from django.urls import reverse
 from django.views import generic
@@ -17,9 +17,15 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Transaction.objects.order_by('date')
 
-class EditView(generic.ListView):
-    template_name = 'transactions/edit.html'
-    context_object_name = 'edit_transaction'
+def edit_template(request):
+    if request.method =='POST':
+        form = TemplateForm(reuqest.POST)
+        if form.is_vaid():
+            model_instance = form.save(commit=FALSE)
+            model_instance.timestamp = timezone.now()
+            model_instance.save()
+            return redirect('/')
 
-    def get_queryset(self):
-        return Transaction.objects.order_by('date')
+    else:
+        form = TemplateForm()
+        return render(request, "edit.html", {'form': form})

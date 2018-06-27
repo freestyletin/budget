@@ -2,12 +2,8 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'transactions/style.css' %}" />
 
-{% if edit_transaction %}
-  <ul>
-    {% for transaction in edit_transaction %}
-    <li>{{ transaction.date }} - {{ transaction.address }}</li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>No transactions are available.</p>
-{% endif %}
+<form method="POST">
+  {% csrf token %}
+  {{ form }}
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

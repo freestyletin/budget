@@ -31,8 +31,3 @@ class TransactionDetail(models.Model):
 
     def __str__(self):
         return self.price_extended_custom
-
-class TransactionForm(ModelForm):
-    class Meta:
-        model = Transaction
-        fields = '__all__'
