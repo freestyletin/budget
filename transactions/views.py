@@ -18,6 +18,11 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Transaction.objects.order_by('-date')
 
+class UpdateView(generic.UpdateView):
+    model = Transaction
+    field = '__all__'
+    template_name='edit.html'
+
 def create_transaction(request):
     if request.method =='POST':
         form = TransactionForm(request.POST)
