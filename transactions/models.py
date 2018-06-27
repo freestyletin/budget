@@ -1,6 +1,5 @@
 import datetime
 from django.db import models
-from django.forms import ModelForm
 
 class Transaction(models.Model):
     date = models.DateTimeField('Date')
