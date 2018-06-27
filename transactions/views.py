@@ -18,10 +18,10 @@ class TransactionListView(generic.ListView):
 
 class TransactionDetailView(generic.DetailView):
     model = Transaction
+    template_name = 'detail.html'
 
 class TransactionUpdateView(generic.UpdateView):
     model = Transaction
-    fields = '__all__'
     template_name = 'edit.html'
 
 def create_transaction(request):
