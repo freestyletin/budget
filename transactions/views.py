@@ -15,6 +15,7 @@ from .forms import TransactionForm
 class TransactionListView(generic.ListView):
     model = Transaction
     template_name = 'index.html'
+    context_object_name = 'transaction_list'
 
 class TransactionDetailView(generic.DetailView):
     model = Transaction
