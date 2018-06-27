@@ -18,7 +18,7 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Transaction.objects.order_by('-date')
 
-def edit_transaction(request):
+def create_transaction(request):
     if request.method =='POST':
         form = TransactionForm(request.POST)
         if form.is_valid():
@@ -28,4 +28,4 @@ def edit_transaction(request):
             return redirect('/transactions/')
     else:
         form = TransactionForm()
-        return render(request, "transactions/edit.html", {'form': form})
+        return render(request, "transactions/create.html", {'form': form})
