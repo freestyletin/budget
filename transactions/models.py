@@ -1,5 +1,6 @@
 import datetime
 from django.db import models
+from django.urls import reverse
 
 class Transaction(models.Model):
     date = models.DateTimeField('Date')
@@ -14,6 +15,9 @@ class Transaction(models.Model):
     account_from = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="from account", related_name='transaction_as_account_from_set')
     account_to = models.ForeignKey('accounts.Account', null=True, on_delete=models.SET_NULL, verbose_name="to account", related_name='transaction_as_account_to_set')
     address = models.ForeignKey('contacts.Address', null=True, on_delete=models.SET_NULL, related_name='transaction_as_address_set', verbose_name="address")
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.contact_custom.name
