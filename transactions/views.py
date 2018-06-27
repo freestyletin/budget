@@ -21,11 +21,11 @@ class IndexView(generic.ListView):
 def edit_template(request):
     if request.method =='POST':
         form = TransactionForm(request.POST)
-#        if form.is_valid():
-        model_instance = form.save(commit=FALSE)
-        model_instance.timestamp = timezone.now()
-        model_instance.save()
-        return redirect('/')
+        if form.is_valid():
+            model_instance = form.save(commit=False)
+            model_instance.timestamp = timezone.now()
+            model_instance.save()
+            return redirect('/')
     else:
         form = TransactionForm()
         return render(request, "transactions/edit.html", {'form': form})
