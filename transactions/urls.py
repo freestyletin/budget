@@ -5,5 +5,5 @@ from . import views
 app_name = 'transactions'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('<int:transaction_id>/edit/', views.edit, name='edit'),
+    path('edit/', views.EditView.as_view(), name='edit'),
 ]
