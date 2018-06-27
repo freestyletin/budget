@@ -2,7 +2,7 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'transaction:edit' transaction.id %}" method="post">
+<form action="{% url 'transaction:edit' transaction.id %}" method="get">
   {% csrf_token %}
   {% form.as_p %}
   <input type="submit" value="Save" />
