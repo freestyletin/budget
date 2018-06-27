@@ -19,7 +19,7 @@ class IndexView(generic.ListView):
 
 def edit_template(request):
     if request.method =='POST':
-        form = TemplateForm(request.POST)
+        form = TemplateForm(pk=request.POST)
         if form.is_vaid():
             model_instance = form.save(commit=FALSE)
             model_instance.timestamp = timezone.now()
