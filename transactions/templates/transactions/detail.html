@@ -1,9 +1,5 @@
-<h1>{{ transaction.date }}</h1>
+{% load static %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<link rel="stylesheet" type="text/css" href="{% static 'transactions/style.css' %}" />
 
-<form action="{% url 'transaction:edit' transaction.id %}" method="get">
-  {% csrf_token %}
-  {% form.as_p %}
-  <input type="submit" value="Save" />
-</form>
+<h1>{{ object.date }}</h1>
