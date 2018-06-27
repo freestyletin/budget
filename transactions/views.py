@@ -25,7 +25,7 @@ def edit_template(request):
             model_instance = form.save(commit=False)
             model_instance.timestamp = timezone.now()
             model_instance.save()
-            return redirect('transactions/')
+            return redirect(IndexView)
     else:
         form = TransactionForm()
         return render(request, "transactions/edit.html", {'form': form})
