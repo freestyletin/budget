@@ -12,12 +12,13 @@ from .forms import TransactionForm
 #def index(request):
 #    return HttpResponse("Hello, world. You're at the polls index.")
 
-class IndexView(generic.ListView):
-    template_name = 'transactions/index.html'
+class TransactionListView(generic.ListView):
+    model = Transaction
+    template_name = 'index.html'
 
-    def get_queryset(self):
-        return Transaction.objects.order_by('-date')
-
+class DetailView(generic.DetailView):
+    model = Transaction
+    
 class UpdateView(generic.UpdateView):
     model = Transaction
     fields = '__all__'
