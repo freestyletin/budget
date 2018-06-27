@@ -5,7 +5,7 @@
 {% if transaction_list %}
   <ul>
     {% for transaction in transaction_list %}
-    <li>{{ transaction.date }} - {{ transaction.address }}</li>
+    <li><a href="{{% 'transactions:detail' transaction.id }}">{{ transaction.date }} - {{ transaction.address }}</a></li>
     {% endfor %}
   </ul>
 {% else %}
