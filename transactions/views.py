@@ -25,7 +25,6 @@ def edit_template(request, transaction_id):
             model_instance.timestamp = timezone.now()
             model_instance.save()
             return redirect('/')
-
     else:
         form = TemplateForm()
         return render(request, "edit.html", {'form': form})
