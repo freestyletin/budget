@@ -22,6 +22,7 @@ class TransactionDetailView(generic.DetailView):
     template_name = 'transactions/detail.html'
 
 class TransactionUpdateView(generic.UpdateView):
+    model = Transaction
     form_class = TransactionForm
     template_name = 'transactions/edit.html'
 
