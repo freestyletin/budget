@@ -17,7 +17,7 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Transaction.objects.order_by('date')
 
-def edit_template(request, transaction_id):
+def edit_template(request):
     if request.method =='POST':
         form = TemplateForm(pk=request.POST)
         if form.is_valid():
