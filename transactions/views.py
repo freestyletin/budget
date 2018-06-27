@@ -14,16 +14,16 @@ from .forms import TransactionForm
 
 class TransactionListView(generic.ListView):
     model = Transaction
-    template_name = 'index.html'
+    template_name = 'transactions/index.html'
     context_object_name = 'transaction_list'
 
 class TransactionDetailView(generic.DetailView):
     model = Transaction
-    template_name = 'detail.html'
+    template_name = 'transactions/detail.html'
 
 class TransactionUpdateView(generic.UpdateView):
     model = Transaction
-    template_name = 'edit.html'
+    template_name = 'transactions/edit.html'
 
 def create_transaction(request):
     if request.method =='POST':
