@@ -28,4 +28,4 @@ def edit_template(request):
             return redirect('/')
     else:
         form = TransactionForm()
-        return render(request, "edit.html", {'form': form})
+        return render(request, "transactions/edit.html", {'form': form})
