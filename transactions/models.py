@@ -17,7 +17,7 @@ class Transaction(models.Model):
     address = models.ForeignKey('contacts.Address', null=True, on_delete=models.SET_NULL, related_name='transaction_as_address_set', verbose_name="address")
 
     def get_absolute_url(self):
-        return reverse('transactions.views.detail', args=[str(self.id)])
+        return reverse('detail', args=[str(self.id)])
 
     def __str__(self):
         return self.contact_custom.name
