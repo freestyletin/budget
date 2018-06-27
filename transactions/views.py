@@ -7,7 +7,7 @@ from django.views import generic
 from django.utils import timezone
 
 from .models import Transaction, TransactionDetail
-from .forms import TemplateForm
+from .forms import TransactionForm
 
 #def index(request):
 #    return HttpResponse("Hello, world. You're at the polls index.")
