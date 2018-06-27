@@ -21,7 +21,7 @@ class IndexView(generic.ListView):
 class UpdateView(generic.UpdateView):
     model = Transaction
     fields = '__all__'
-    template_name='edit.html'
+    template_name = 'edit.html'
 
 def create_transaction(request):
     if request.method =='POST':
