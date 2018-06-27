@@ -16,7 +16,7 @@ class IndexView(generic.ListView):
     template_name = 'transactions/index.html'
 
     def get_queryset(self):
-        return Transaction.objects.order_by('date')
+        return Transaction.objects.order_by('-date')
 
 def edit_transaction(request):
     if request.method =='POST':
