@@ -20,7 +20,7 @@ class IndexView(generic.ListView):
 
 class UpdateView(generic.UpdateView):
     model = Transaction
-    field = '__all__'
+    fields = '__all__'
     template_name='edit.html'
 
 def create_transaction(request):
