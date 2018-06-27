@@ -20,7 +20,7 @@ class IndexView(generic.ListView):
 
 def edit_template(request):
     if request.method =='POST':
-        form = TransactionForm(pk=request.POST)
+        form = TransactionForm(request.POST)
         if form.is_valid():
             model_instance = form.save(commit=FALSE)
             model_instance.timestamp = timezone.now()
