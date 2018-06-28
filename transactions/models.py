@@ -20,7 +20,10 @@ class Transaction(models.Model):
         return reverse('transactions:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return self.address or ""
+        if self.address:
+            return self.address
+        else:
+            return self.date
 
 class TransactionDetail(models.Model):
     quantity = models.DecimalField('Quantity', max_digits=10, decimal_places=5)
