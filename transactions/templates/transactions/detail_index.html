@@ -11,4 +11,4 @@
 {% else %}
   <p>No transaction details are available.</p>
 {% endif %}
-<p><a href="create/">Add a transaction detail</a></p>
+<p><a href="{% url 'transactions:detail-create'}">Add a transaction detail</a></p>
