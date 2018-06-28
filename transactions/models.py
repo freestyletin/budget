@@ -40,6 +40,12 @@ class TransactionDetail(models.Model):
     unit_factor_custom = models.DecimalField('Custom Unit Factor', max_digits=10, decimal_places=5, blank=True, null=True)
 
     def price_discounted_calculated(self):
+        if self.price_regular_custom and self.discount_custom:
+            return round(self.price_regular_custom - self.discount_custom, 2)
+        else:
+            return
+
+    def discount_calculated(self):
         if self.price_regular_custom and self.price_discounted_custom:
             return round(self.price_regular_custom - self.price_discounted_custom, 2)
         else:
