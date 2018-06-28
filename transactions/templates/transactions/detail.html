@@ -2,27 +2,17 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'transactions/style.css' %}" />
 
-<h1>{{ object.date }}</h1>
-<p>{{ object.total_custom }}</p>
-<p>{{ object.tax_total_custom }}</p>
-<p>{{ object.tip_total }}</p>
-<p>{{ object.bags_total }}</p>
-<p>{{ object.donation_total }}</p>
-<p>{{ object.grand_total_custom }}</p>
-<p>{{ object.contact_custom }}</p>
-<p>{{ object.account_from }}</p>
-<p>{{ object.account_to }}</p>
-<p>{{ object.address }}</p>
+<h1>Date: {{ object.date }}</h1>
+<p>Custom Total: {{ object.total_custom }}</p>
+<p>Custom Tax Total: {{ object.tax_total_custom }}</p>
+<p>Tip Total: {{ object.tip_total }}</p>
+<p>Bags Total: {{ object.bags_total }}</p>
+<p>Donation Total: {{ object.donation_total }}</p>
+<p>Custom Grand Total: {{ object.grand_total_custom }}</p>
+<p>Custom Contact: {{ object.contact_custom }}</p>
+<p>From Account: {{ object.account_from }}</p>
+<p>To Account: {{ object.account_to }}</p>
+<p>Location: {{ object.address }}</p>
 <div>
   <a href="edit/">Edit</a>
 </div>
-
-{% for object in queryset %}
-<p>{{ object.name }}: {{ object.value }}</p>
-{% endfor %}
-
-{% for instance in data %}
-    {% for field, value in instance.fields.items %}
-        <p>{{ field }}: {{ value }}</p>
-    {% endfor %}
-{% endfor %}
