@@ -5,7 +5,7 @@
 {% if generic_item_list %}
   <ul>
     {% for genericitem in generic_item_list %}
-    <li><a href="{% url 'transactions:generic-detail' genericitem.id %}">{{ genericitem.description }} - {{ genericitem.unit }}</a></li>
+    <li><a href="{% url 'items:generic-detail' genericitem.id %}">{{ genericitem.description }} - {{ genericitem.unit }}</a></li>
     {% endfor %}
   </ul>
 {% else %}
