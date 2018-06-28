@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'items/style.css' %}" />
+
+{% if generic_item_list %}
+  <ul>
+    {% for genericitem in generic_item_list %}
+    <li><a href="{% url 'transactions:generic-detail' genericitem.id %}">{{ genericitem.description }} - {{ genericitem.unit }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No generic items are available.</p>
+{% endif %}
+<p><a href="{% url 'items:generic-create'}">Add a generic item</a></p>

@@ -5,9 +5,10 @@
 {% if item_list %}
   <ul>
     {% for item in item_list %}
-    <li>{{ item.description }} - {{ item.unit }} - {{ item.unit.subunit }} - {{ item.unit_factor }} - {{ item.unit.quantity_per }}</li>
+    <li><a href="{% url 'items:detail' item.id %}">{{ item.description }} - {{ item.unit }}</a></li>
     {% endfor %}
   </ul>
 {% else %}
   <p>No items are available.</p>
 {% endif %}
+<p><a href="{% url 'items:create'}">Add an item</a></p>

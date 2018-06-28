@@ -1,0 +1,18 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'items/style.css' %}" />
+<table>
+<tr><td>UPC:</td><td>{{ object.upc }}</td></tr>
+<tr><td>Model Number:</td><td>{{ object.model_number }}</td></tr>
+<tr><td>Description:</td><td>{{ object.description }}</td></tr>
+<tr><td>Custom ml:</td><td>{{ object.milliliters_custom }}</td></tr>
+<tr><td>Custom Unit Factor:</td><td>{{ object.unit_factor_custom }}</td></tr>
+<tr><td>Generic Item:</td><td>{{ object.generic_item }}</td></tr>
+<tr><td>Unit:</td><td>{{ object.unit }}</td></tr>
+<tr><td>Custom Unit:</td><td>{{ object.base_unit_custom }}</td></tr>
+</table>
+
+<div>
+  <span><a href="edit/">Edit</a></span>
+  <span><a href="../">Back</a></span>
+</div>
