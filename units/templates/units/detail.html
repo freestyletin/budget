@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'units/style.css' %}" />
+<table>
+<tr><td>Unit:</td><td>{{ object.name }}</td></tr>
+<tr><td>Quantity Per:</td><td>{{ object.quantity_per }}</td></tr>
+<tr><td>Subunit:</td><td>{{ object.subunit }}</td></tr>
+<tr><td>Abbreviation:</td><td>{{ object.abbreviation }}</td></tr>
+</table>
+
+<div>
+  <span><a href="edit/">Edit</a></span>
+  <span><a href="../">Back</a></span>
+</div>

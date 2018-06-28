@@ -36,6 +36,9 @@ class Unit(models.Model):
             return self.subunit.quantity_per * self.quantity_per
         return 0
 
+    def get_absolute_url(self):
+        return reverse('units:detail', kwargs={'pk': self.pk})
+
     def __str__(self):
         return self.name
 
