@@ -2,10 +2,10 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'transactions/style.css' %}" />
 
-{% if transaction_list %}
+{% if transaction_detail_list %}
   <ul>
     {% for transactiondetail in transaction_detail_list %}
-    <li><a href="{% url 'transactions:detail-detail' transactiondetail.id %}">{{ transactiondetail.date }} - {{ transaction.address }}</a></li>
+    <li><a href="{% url 'transactions:detail-detail' transactiondetail.id %}">{{ transactiondetail.date }} - {{ transactiondetail.item }}</a></li>
     {% endfor %}
   </ul>
 {% else %}
