@@ -1,18 +1,20 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'transactions/style.css' %}" />
+<table>
+<tr><td>Date:</td><td>{{ object.date }}</td></tr>
+<tr><td>Custom Total:</td><td>{{ object.total_custom }}</td></tr>
+<tr><td>Custom Tax Total:</td><td>{{ object.tax_total_custom }}</td></tr>
+<tr><td>Tip Total:</td><td>{{ object.tip_total }}</td></tr>
+<tr><td>Bags Total:</td><td>{{ object.bags_total }}</td></tr>
+<tr><td>Donation Total:</td><td>{{ object.donation_total }}</td></tr>
+<tr><td>Custom Grand Total:</td><td>{{ object.grand_total_custom }}</td></tr>
+<tr><td>Custom Contact:</td><td>{{ object.contact_custom }}</td></tr>
+<tr><td>From Account:</td><td>{{ object.account_from }}</td></tr>
+<tr><td>To Account:</td><td>{{ object.account_to }}</td></tr>
+<tr><td>Location:</td><td>{{ object.address }}</td></tr>
+</table>
 
-<h1>Date: {{ object.date }}</h1>
-<p>Custom Total: {{ object.total_custom }}</p>
-<p>Custom Tax Total: {{ object.tax_total_custom }}</p>
-<p>Tip Total: {{ object.tip_total }}</p>
-<p>Bags Total: {{ object.bags_total }}</p>
-<p>Donation Total: {{ object.donation_total }}</p>
-<p>Custom Grand Total: {{ object.grand_total_custom }}</p>
-<p>Custom Contact: {{ object.contact_custom }}</p>
-<p>From Account: {{ object.account_from }}</p>
-<p>To Account: {{ object.account_to }}</p>
-<p>Location: {{ object.address }}</p>
 <div>
   <span><a href="edit/">Edit</a></span>
   <span><a href="../">Back</a></span>
