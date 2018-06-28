@@ -1,0 +1,11 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'brands/style.css' %}" />
+<table>
+  <tr><td>Brand:</td><td>{{ object.name }}</td></tr>
+</table>
+
+<div>
+  <span><a href="edit/">Edit</a></span>
+  <span><a href="../">Back</a></span>
+</div>
