@@ -41,13 +41,13 @@ class TransactionDetail(models.Model):
 
     def price_discounted_calculated(self):
         if self.price_regular_custom and self.discount_custom:
-            return round(self.price_regular_custom - self.discount_custom, 2)
+            return round(self.price_regular_custom - self.discount_custom, 5)
         else:
             return
 
     def discount_calculated(self):
         if self.price_regular_custom and self.price_discounted_custom:
-            return round(self.price_regular_custom - self.price_discounted_custom, 2)
+            return round(self.price_regular_custom - self.price_discounted_custom, 5)
         else:
             return
 
