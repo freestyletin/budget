@@ -21,7 +21,7 @@ class Transaction(models.Model):
 
     def __str__(self):
         if self.date:
-            return self.date
+            return str(self.date)
         else:
             return "Transaction"
 
