@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class GenericItem(models.Model):
     name = models.CharField('Item', max_length=255, blank=True)
