@@ -13,6 +13,16 @@ class BrandListView(generic.ListView):
     model = Brand
     template_name = 'brands/index.html'
     context_object_name = 'brand_list'
+
+class BrandDetailView(generic.DetailView):
+    model = Brand
+    template_name = 'brands/detail.html'
+
+class BrandUpdateView(generic.UpdateView):
+    model = Brand
+    form_class = BrandForm
+    template_name = 'brands/edit.html'
+
 def create_brand(request):
     if request.method =='POST':
         form = BrandForm(request.POST)
