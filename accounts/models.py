@@ -10,4 +10,7 @@ class Account(models.Model):
         return reverse('accounts:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return self.name
+        if self.card_number_last4:
+            return '%s (%s)' % (self.name, self.card_number_last4)
+        else:
+            return self.name
