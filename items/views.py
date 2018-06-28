@@ -56,7 +56,7 @@ def create_generic_item(request):
             model_instance = form.save(commit=False)
             model_instance.timestamp = timezone.now()
             model_instance.save()
-            return redirect('/items/generic/detail/')
+            return redirect('/items/generic/')
     else:
         form = GenericItemForm()
         return render(request, "items/generic_create.html", {'form': form})
