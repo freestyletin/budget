@@ -16,3 +16,7 @@
 <div>
   <a href="edit/">Edit</a>
 </div>
+
+{% for object in queryset %}
+<p>{{ object.name }}: {{ object.value }}</p>
+{% endfor %}
