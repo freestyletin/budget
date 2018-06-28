@@ -22,7 +22,20 @@ class TransactionUpdateView(generic.UpdateView):
     model = Transaction
     form_class = TransactionForm
     template_name = 'transactions/edit.html'
-    success_url = ''
+
+class TransactionDetailListView(generic.ListView):
+    model = TransactionDetail
+    template_name = 'transactions/index.html'
+    context_object_name = 'transaction_detail_list'
+
+class TransactionDetailDetailView(generic.DetailView):
+    model = TransactionDetail
+    template_name = 'transactions/detail.html'
+
+class TransactionDetailUpdateView(generic.UpdateView):
+    model = TransactionDetail
+    form_class = TransactionDetailForm
+    template_name = 'transactions/detail/edit.html'
 
 def create_transaction(request):
     if request.method =='POST':
@@ -35,3 +48,15 @@ def create_transaction(request):
     else:
         form = TransactionForm()
         return render(request, "transactions/create.html", {'form': form})
+
+def create_transaction_detail(request):
+    if request.method =='POST':
+        form = TransactionDetailForm(request.POST)
+        if form.is_valid():
+            model_instance = form.save(commit=False)
+            model_instance.timestamp = timezone.now()
+            model_instance.save()
+            return redirect('/transactions/detail/')
+    else:
+        form = TransactionDetailForm()
+        return render(request, "transactions/detail/create.html", {'form': form})

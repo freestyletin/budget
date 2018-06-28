@@ -1,0 +1,20 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'transactions/style.css' %}" />
+<table>
+<tr><td>Quantity:</td><td>{{ object.quantity }}</td></tr>
+<tr><td>Custom Regular Price:</td><td>{{ object.price_regular_custom }}</td></tr>
+<tr><td>Custom Discount:</td><td>{{ object.discount_custom }}</td></tr>
+<tr><td>Custom Discounted Price:</td><td>{{ object.price_discounted_custom }}</td></tr>
+<tr><td>Custom Extended Price:</td><td>{{ object.price_extended_custom }}</td></tr>
+<tr><td>Custom CRV Per:</td><td>{{ object.crv_per_custom }}</td></tr>
+<tr><td>Custom Tax Per:</td><td>{{ object.tax_per_custom }}</td></tr>
+<tr><td>Transaction:</td><td>{{ object.transaction }}</td></tr>
+<tr><td>Item:</td><td>{{ object.item }}</td></tr>
+<tr><td>Generic Item:</td><td>{{ object.generic_item }}</td></tr>
+</table>
+
+<div>
+  <span><a href="edit/">Edit</a></span>
+  <span><a href="../">Back</a></span>
+</div>

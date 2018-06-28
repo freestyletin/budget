@@ -31,6 +31,11 @@ class TransactionDetail(models.Model):
     crv_per_custom = models.DecimalField('Custom CRV Per', max_digits=10, decimal_places=5)
     tax_per_custom = models.DecimalField('Custom Tax Per', max_digits=10, decimal_places=5)
     transaction = models.ForeignKey('Transaction', null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_transaction_set', verbose_name="transaction")
+    item = models.ForeignKey('Item', null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_item_set')
+    generic_item = models.ForeignKey('GenericItem', null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_generic_item_set', verbose_name="generic item")
+
+    def get_absolute_url(self):
+        return reverse('transactions:detail-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.price_extended_custom

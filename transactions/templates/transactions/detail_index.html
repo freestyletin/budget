@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'transactions/style.css' %}" />
+
+{% if transaction_list %}
+  <ul>
+    {% for transactiondetail in transaction_detail_list %}
+    <li><a href="{% url 'transactions:detail-detail' transactiondetail.id %}">{{ transactiondetail.date }} - {{ transaction.address }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No transaction details are available.</p>
+{% endif %}
