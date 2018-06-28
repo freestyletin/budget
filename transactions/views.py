@@ -7,7 +7,7 @@ from django.views import generic
 from django.utils import timezone
 
 from .models import Transaction, TransactionDetail
-from .forms import TransactionForm
+from .forms import TransactionForm, TransactionDetailForm
 
 class TransactionListView(generic.ListView):
     model = Transaction
