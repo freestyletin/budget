@@ -25,17 +25,17 @@ class TransactionUpdateView(generic.UpdateView):
 
 class TransactionDetailListView(generic.ListView):
     model = TransactionDetail
-    template_name = 'transactions/index.html'
+    template_name = 'transactions/detail_index.html'
     context_object_name = 'transaction_detail_list'
 
 class TransactionDetailDetailView(generic.DetailView):
     model = TransactionDetail
-    template_name = 'transactions/detail.html'
+    template_name = 'transactions/detail_detail.html'
 
 class TransactionDetailUpdateView(generic.UpdateView):
     model = TransactionDetail
     form_class = TransactionDetailForm
-    template_name = 'transactions/detail/edit.html'
+    template_name = 'transactions/detail_edit.html'
 
 def create_transaction(request):
     if request.method =='POST':
