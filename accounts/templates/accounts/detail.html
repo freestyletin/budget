@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/style.css' %}" />
+<table>
+  <tr><td>Name:</td><td>{{ object.name }}</td></tr>
+  <tr><td>Account Number:</td><td>{{ object.account_number }}</td></tr>
+  <tr><td>Card Number (last 4):</td><td>{{ object.card_number_last4 }}</td></tr>
+</table>
+
+<div>
+  <span><a href="edit/">Edit</a></span>
+  <span><a href="../">Back</a></span>
+</div>

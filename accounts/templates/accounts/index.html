@@ -5,9 +5,10 @@
 {% if account_list %}
   <ul>
     {% for account in account_list %}
-    <li>{{ account.name }} - {{ account.card_number_last4 }}</li>
+    <li><a href="{% url 'accounts:detail' account.id %}">{{ account.name }}</a></li>
     {% endfor %}
   </ul>
 {% else %}
   <p>No accounts are available.</p>
 {% endif %}
+<p><a href="{% url 'accounts:create' %}">Add an account</a></p>
