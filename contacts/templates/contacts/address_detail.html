@@ -1,0 +1,20 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}" />
+<table>
+  <tr><td>Name:</td><td>{{ object.name }}</td></tr>
+  <tr><td>Street Number:</td><td>{{ object.street_number }}</td></tr>
+  <tr><td>Street Cardinal:</td><td>{{ object.street_cardinal }}</td></tr>
+  <tr><td>Street Name:</td><td>{{ object.street_name }}</td></tr>
+  <tr><td>Street Class:</td><td>{{ object.street_class }}</td></tr>
+  <tr><td>City:</td><td>{{ object.city }}</td></tr>
+  <tr><td>State:</td><td>{{ object.state }}</td></tr>
+  <tr><td>Zip Code:</td><td>{{ object.zip_code }}</td></tr>
+  <tr><td>Phone Number:</td><td>{{ object.phone_number }}</td></tr>
+  <tr><td>Contact:</td><td>{{ object.contact }}</td></tr>
+</table>
+
+<div>
+  <span><a href="edit/">Edit</a></span>
+  <span><a href="../">Back</a></span>
+</div>

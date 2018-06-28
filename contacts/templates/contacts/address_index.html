@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}" />
+
+{% if address_list %}
+  <ul>
+    {% for address in address_list %}
+    <li><a href="{% url 'contacts:address-detail' address.id %}">{{ address.street_name }} - {{ address.city }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No addresses are available.</p>
+{% endif %}
+<p><a href="{% url 'contacts:address-create' %}">Add an address</a></p>
