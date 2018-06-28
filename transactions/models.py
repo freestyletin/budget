@@ -20,7 +20,7 @@ class Transaction(models.Model):
         return reverse('transactions:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return self.contact_custom.name
+        return self.address
 
 class TransactionDetail(models.Model):
     quantity = models.DecimalField('Quantity', max_digits=10, decimal_places=5)
