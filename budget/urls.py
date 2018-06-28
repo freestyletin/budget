@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 
+from . import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('units/', include('units.urls')),
@@ -25,4 +27,5 @@ urlpatterns = [
     path('transactions/', include('transactions.urls')),
     path('accounts/', include('accounts.urls')),
     path('brands/', include('brands.urls')),
+    path('', IndexView.as_view(), name="home"),
 ]
