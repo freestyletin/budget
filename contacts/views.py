@@ -56,7 +56,7 @@ def create_address(request):
             model_instance = form.save(commit=False)
             model_instance.timestamp = timezone.now()
             model_instance.save()
-            return redirect('/items/address/')
+            return redirect('/contacts/address/')
     else:
         form = AddressForm()
         return render(request, "contacts/address_create.html", {'form': form})
