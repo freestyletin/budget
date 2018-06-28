@@ -11,7 +11,8 @@ class Unit(models.Model):
         'Quantity Per',
         max_digits=10,
         decimal_places=5,
-        default=1
+        blank=True,
+        null=True
         )
     subunit = models.ForeignKey(
         'self',
