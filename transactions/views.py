@@ -9,9 +9,6 @@ from django.utils import timezone
 from .models import Transaction, TransactionDetail
 from .forms import TransactionForm
 
-#def index(request):
-#    return HttpResponse("Hello, world. You're at the polls index.")
-
 class TransactionListView(generic.ListView):
     model = Transaction
     template_name = 'transactions/index.html'
