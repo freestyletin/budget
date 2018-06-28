@@ -5,6 +5,7 @@ from django.http import Http404
 from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.utils import timezone
+from django.views.generic.base import TemplateView
 
 class IndexView(TemplateView):
     template_name = 'budget/index.html'
