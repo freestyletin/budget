@@ -26,13 +26,13 @@ class Transaction(models.Model):
             return "Transaction"
 
 class TransactionDetail(models.Model):
-    quantity = models.DecimalField('Quantity', max_digits=10, decimal_places=5)
-    price_regular_custom = models.DecimalField('Custom Regular Price', max_digits=10, decimal_places=5)
-    discount_custom = models.DecimalField('Custom Discount', max_digits=10, decimal_places=5)
-    price_discounted_custom = models.DecimalField('Custom Discounted Price', max_digits=10, decimal_places=5)
-    price_extended_custom = models.DecimalField('Custom Extended Price', max_digits=10, decimal_places=5)
-    crv_per_custom = models.DecimalField('Custom CRV Per', max_digits=10, decimal_places=5)
-    tax_per_custom = models.DecimalField('Custom Tax Per', max_digits=10, decimal_places=5)
+    quantity = models.DecimalField('Quantity', max_digits=10, decimal_places=5, default=1)
+    price_regular_custom = models.DecimalField('Custom Regular Price', max_digits=10, decimal_places=5, default=0)
+    discount_custom = models.DecimalField('Custom Discount', max_digits=10, decimal_places=5, default=0)
+    price_discounted_custom = models.DecimalField('Custom Discounted Price', max_digits=10, decimal_places=5, default=0)
+    price_extended_custom = models.DecimalField('Custom Extended Price', max_digits=10, decimal_places=5, default=0)
+    crv_per_custom = models.DecimalField('Custom CRV Per', max_digits=10, decimal_places=5, default=0)
+    tax_per_custom = models.DecimalField('Custom Tax Per', max_digits=10, decimal_places=5, default=0)
     transaction = models.ForeignKey('Transaction', null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_transaction_set', verbose_name="transaction")
     item = models.ForeignKey('items.Item', null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_item_set')
     generic_item = models.ForeignKey('items.GenericItem', null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_generic_item_set', verbose_name="generic item")
