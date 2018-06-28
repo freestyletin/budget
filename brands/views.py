@@ -30,7 +30,7 @@ def create_brand(request):
             model_instance = form.save(commit=False)
             model_instance.timestamp = timezone.now()
             model_instance.save()
-            return redirect('/brands/generic/')
+            return redirect('/brands/')
     else:
         form = BrandForm()
         return render(request, "brands/create.html", {'form': form})
