@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 
 class Transaction(models.Model):
-    date = models.DateTimeField('Date', input_formats=[''%m/%d/%y'])
+    date = models.DateTimeField('Date', input_formats=['%m/%d/%y'])
     #card_used = models.ForeignKey('accounts.card_number_last4', on_delete=SET_NULL, verbose_name="card used")
     total_custom = models.DecimalField('Custom Total', max_digits=10, decimal_places=2)
     tax_total_custom = models.DecimalField('Custom Tax Total', max_digits=10, decimal_places=2)
