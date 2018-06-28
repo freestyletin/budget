@@ -18,7 +18,7 @@ class TransactionListView(generic.ListView):
 class TransactionDetailView(generic.DetailView):
     model = Transaction
     template_name = 'transactions/detail.html'
-    data = serializers.serialize( "python", SomeModel.objects.all() )
+    data = serializers.serialize( "python", Transaction.objects.all() )
 
 class TransactionUpdateView(generic.UpdateView):
     model = Transaction
