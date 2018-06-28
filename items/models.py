@@ -7,7 +7,7 @@ class GenericItem(models.Model):
     unit_factor_custom = models.DecimalField('Custom Unit Factor', max_digits=10, decimal_places=5, default=1)
 
     def get_absolute_url(self):
-        return reverse('items:detail', kwargs={'pk': self.pk})
+        return reverse('items:generic-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.name
@@ -27,7 +27,7 @@ class Item(models.Model):
 #        return self.qty_test * self.unit.quantity_per
 
     def get_absolute_url(self):
-        return reverse('items:generic-detail', kwargs={'pk': self.pk})
+        return reverse('items:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.description
