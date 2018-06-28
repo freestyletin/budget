@@ -59,4 +59,4 @@ def create_transaction_detail(request):
             return redirect('/transactions/detail/')
     else:
         form = TransactionDetailForm()
-        return render(request, "transactions/detail-create.html", {'form': form})
+        return render(request, "transactions/detail_create.html", {'form': form})
