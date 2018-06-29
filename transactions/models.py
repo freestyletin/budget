@@ -57,6 +57,22 @@ class TransactionDetail(models.Model):
         else:
             return
 
+    def price_final(self):
+        if self.price_discounted_custom:
+            return self.price_discounted_custom
+        elif self.price_discounted_calculated:
+            return self.price_discounted_calculated
+        elif self.price_regular_custom:
+            return self.price_regular_custom
+        else:
+            return
+
+    def price_extended(self):
+        if self.price_final and self.quantity:
+            return self.price_final * self.quantity
+        else:
+            return
+
     def get_absolute_url(self):
         return reverse('transactions:detail-detail', kwargs={'pk': self.pk})
 

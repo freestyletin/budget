@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'transactions/style.css' %}" />
 <table>
-<tr><strong><td>id:</td><td>{{ object.id }}</td></strong></tr>
+<tr><td>id:</td><td>{{ object.id }}</td></tr>
 <tr><td>Quantity:</td><td>{{ object.quantity }}</td></tr>
 <tr><td>Custom Regular Price:</td><td>{{ object.price_regular_custom }}</td></tr>
 <tr><td>Custom Discount:</td><td>{{ object.discount_custom }}</td></tr>
@@ -18,6 +18,8 @@
 <tr><td>Calc Discounted Price:</td><td>{{ object.price_discounted_calculated }}</td></tr>
 <tr><td>Calc Discount:</td><td>{{ object.discount_calculated }}</td></tr>
 <tr><td>Calc Regular Price:</td><td>{{ object.price_regular_calculated }}</td></tr>
+<tr><td>Final Price:</td><td>{{ object.price_final }}</td></tr>
+<tr><td>Extended Price:</td><td>{{ object.price_extended }}</td></tr>
 </table>
 
 <div>
