@@ -14,12 +14,10 @@
 <tr><td>To Account:</td><td>{{ object.account_to }}</td></tr>
 <tr><td>Location:</td><td>{{ object.address }}</td></tr>
 <tr><td>Total from Transaction Detail:</td><td>
-  {{ object.transactiondetail_as_transaction_set__price_final__sum }}
-  /*
+  {{ object__transactiondetail_as_transaction_set__price_final__sum }}
   {% for key, value in object.total_from_transactiondetail.items %}
     {{ value }}
   {% endfor %}
-  */
 </td></tr>
 </table>
 
