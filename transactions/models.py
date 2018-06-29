@@ -20,7 +20,7 @@ class Transaction(models.Model):
 
     @property
     def total_from_transactiondetail(self):
-        return Transaction.objects.annotate(total=Sum(F('transactiondetail_as_transaction_set__price_final')))
+        return Transaction.objects.aggregate(total=Sum(F('transactiondetail_as_transaction_set__price_final')))
 
     def get_absolute_url(self):
         return reverse('transactions:detail', kwargs={'pk': self.pk})
