@@ -14,7 +14,7 @@
 <tr><td>To Account:</td><td>{{ object.account_to }}</td></tr>
 <tr><td>Location:</td><td>{{ object.address }}</td></tr>
 <tr><td>Total from Transaction Detail:</td><td>
-  {% for list_id, dict in object.total_from_transactiondetail.items %}
+  {% for value in object.total_from_transactiondetail.items %}
     {{ value }}
   {% endfor %}
 </td></tr>
