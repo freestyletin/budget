@@ -5,7 +5,7 @@
 {% if transaction_detail_list %}
   <ul>
     {% for transactiondetail in transaction_detail_list %}
-    <li><a href="{% url 'transactions:detail-detail' transactiondetail.id %}">{{ transactiondetail.date }} - {{ transactiondetail.item }}</a></li>
+    <li><a href="{% url 'transactions:detail-detail' transactiondetail.id %}">{{ transactiondetail.id }} - {{ transactiondetail.date }} - {{ transactiondetail.item }}</a></li>
     {% endfor %}
   </ul>
 {% else %}

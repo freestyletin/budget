@@ -2,6 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'transactions/style.css' %}" />
 <table>
+<tr><strong><td>id:</td><td>{{ object.id }}</td></strong></tr>
 <tr><td>Quantity:</td><td>{{ object.quantity }}</td></tr>
 <tr><td>Custom Regular Price:</td><td>{{ object.price_regular_custom }}</td></tr>
 <tr><td>Custom Discount:</td><td>{{ object.discount_custom }}</td></tr>
