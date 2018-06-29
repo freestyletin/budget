@@ -33,7 +33,7 @@ def manage_transactions(request):
         if formset.is_valid():
             pass
     else:
-        formset = TransactionFormSet(initial=Transaction.objects.all())
+        formset = TransactionFormSet()
     return render(request, 'transactions/manage.html', {'formset': formset})
 
 class TransactionUpdateView(generic.UpdateView):
