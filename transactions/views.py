@@ -5,6 +5,7 @@ from django.http import Http404
 from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.utils import timezone
+from django.forms import formset_factory
 
 from .models import Transaction, TransactionDetail
 from .forms import TransactionForm, TransactionDetailForm
@@ -24,6 +25,16 @@ class TransactionDetailView(generic.DetailView):
 #    except Transaction.DoesNotExist:
 #        raise Http404("Transaction does not exist")
 #    return render(request, 'transactions/detail.html', {'transaction': p})
+
+def manage_transactions(request):
+    TransactionFormSet = formset_factory(TransactionForm)
+    if request.method == 'POST':
+        formset = TransactionFormSet(request.POST, request.FILES)
+        if formset.is_valid():
+            pass
+    else:
+        formset = TransactionFormSet()
+    return render(request, 'transactions/manage.html', {'formset': formset})
 
 class TransactionUpdateView(generic.UpdateView):
     model = Transaction

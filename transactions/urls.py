@@ -8,6 +8,7 @@ urlpatterns = [
     path('<int:pk>/', views.TransactionDetailView.as_view(), name='detail'),
     path('create/', views.create_transaction, name='create'),
     path('<int:pk>/edit/', views.TransactionUpdateView.as_view(), name='edit'),
+    path('manage/', views.manage_transactions, name='manage'),
     path('detail/', views.TransactionDetailListView.as_view(), name='detail-index'),
     path('detail/<int:pk>/', views.TransactionDetailDetailView.as_view(), name='detail-detail'),
     path('detail/create/', views.create_transaction_detail, name='detail-create'),

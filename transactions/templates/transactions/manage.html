@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'transactions/style.css' %}" />
+
+<form method="POST">
+  {% csrf_token %}
+  <table>
+    {{ formset }}
+  </table>
+</form>
+
+<div>
+  <span><a href="../">Back</a></span>
+</div>
