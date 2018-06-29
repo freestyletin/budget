@@ -15,9 +15,6 @@
 <tr><td>Location:</td><td>{{ object.address }}</td></tr>
 <tr><td>Total from Transaction Detail:</td><td>
   {{ object.total_from_transactiondetail }}
-  {% for key, value in object.total_from_transactiondetail.items %}
-    {{ value }}
-  {% endfor %}
 </td></tr>
 </table>
 
