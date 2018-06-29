@@ -1,5 +1,6 @@
 import datetime
 from django.db import models
+from django.db.models import Avg, Count, Min, Sum, Max
 from django.urls import reverse
 from decimal import *
 
@@ -16,6 +17,9 @@ class Transaction(models.Model):
     account_from = models.ForeignKey('accounts.Account', null=True, blank=True, on_delete=models.SET_NULL, verbose_name="from account", related_name='transaction_as_account_from_set')
     account_to = models.ForeignKey('accounts.Account', null=True, blank=True, on_delete=models.SET_NULL, verbose_name="to account", related_name='transaction_as_account_to_set')
     address = models.ForeignKey('contacts.Address', null=True, blank=True, on_delete=models.SET_NULL, related_name='transaction_as_address_set', verbose_name="address")
+
+    def total_from_transactiondetail(self):
+        return Transaction.objects.annotate(Sum(F('transactiondetail__price_extended')))
 
     def get_absolute_url(self):
         return reverse('transactions:detail', kwargs={'pk': self.pk})
