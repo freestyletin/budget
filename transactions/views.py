@@ -23,7 +23,7 @@ def transaction_detail(request, transaction_id):
         p = Transaction.objects.get(pk=transaction_id)
     except Transaction.DoesNotExist:
         raise Http404("Transaction does not exist")
-    return render(request, 'Transactions/detail.html', {'transaction': p})
+    return render(request, 'transactions/detail.html', {'transaction': p})
 
 class TransactionUpdateView(generic.UpdateView):
     model = Transaction
