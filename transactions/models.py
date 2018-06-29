@@ -19,7 +19,7 @@ class Transaction(models.Model):
     address = models.ForeignKey('contacts.Address', null=True, blank=True, on_delete=models.SET_NULL, related_name='transaction_as_address_set', verbose_name="address")
 
     def total_from_transactiondetail(self):
-        return Transaction.objects.annotate(Sum(F('transactiondetail__price_extended()')))
+        return Transaction.objects.annotate(Count('transactiondetail'))
 
     def get_absolute_url(self):
         return reverse('transactions:detail', kwargs={'pk': self.pk})
