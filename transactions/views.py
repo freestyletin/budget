@@ -18,7 +18,7 @@ class TransactionListView(generic.ListView):
 #    model = Transaction
 #    template_name = 'transactions/detail.html'
 
-def transaction_detail(request, transaciton_id):
+def transaction_detail(request, transaction_id):
     try:
         p = Transaction.objects.get(pk=transaction_id)
     except Transaction.DoesNotExist:
