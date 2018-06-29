@@ -5,7 +5,7 @@ from . import views
 app_name = 'transactions'
 urlpatterns = [
     path('', views.TransactionListView.as_view(), name='index'),
-    path('<int:pk>/', views.transaction_detail, name='detail'),
+    path('<int:transaction_id>/', views.transaction_detail, name='detail'),
     path('create/', views.create_transaction, name='create'),
     path('<int:pk>/edit/', views.TransactionUpdateView.as_view(), name='edit'),
     path('detail/', views.TransactionDetailListView.as_view(), name='detail-index'),
