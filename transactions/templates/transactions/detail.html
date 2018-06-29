@@ -14,7 +14,7 @@
 <tr><td>To Account:</td><td>{{ object.account_to }}</td></tr>
 <tr><td>Location:</td><td>{{ object.address }}</td></tr>
 <tr><td>Total from Transaction Detail:</td><td>
-  {{ object.total_from_transactiondetail }}
+  {{ object.total_from_transactiondetail.price_final.sum }}
   {% for key, value in object.total_from_transactiondetail.items %}
     {{ value }}
   {% endfor %}
