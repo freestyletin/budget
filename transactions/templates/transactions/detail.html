@@ -15,11 +15,7 @@
 <tr><td>Location:</td><td>{{ object.address }}</td></tr>
 <tr><td>Total from Transaction Detail:</td><td>
   {% for list_id, dict in object.total_from_transactiondetail.items %}
-    list_id: {{ list_id }}
-    {% for k,v in dict.items %}
-      key: {{ k }}
-      value: {{ v }}
-      {% endfor %}
+    {{ value }}
   {% endfor %}
 </td></tr>
 </table>
