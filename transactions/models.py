@@ -20,7 +20,7 @@ class Transaction(models.Model):
 
     @property
     def total_from_transactiondetail(self):
-        price_final_total = Transaction.objects.annotate(total=Count(F('transactiondetail_as_transaction_set__price_final')))
+        price_final_total = Transaction.objects.annotate(total=Max(F('transactiondetail_as_transaction_set__price_final')))
         return price_final_total[0].total
 
     def get_absolute_url(self):
