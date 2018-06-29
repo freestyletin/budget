@@ -69,7 +69,7 @@ class TransactionDetail(models.Model):
 
     def price_extended(self):
         if self.price_final and self.quantity:
-            return self.price_final * self.quantity
+            return Decimal(self.price_final) * self.quantity
         else:
             return
 
