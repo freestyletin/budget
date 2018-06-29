@@ -28,12 +28,14 @@ class TransactionDetailView(generic.DetailView):
 
 def manage_transactions(request):
     TransactionFormSet = formset_factory(TransactionForm, extra=1, max_num=20)
+    transaction_instance = Transaction.objects.get(id=15)
+    transaction_loaded = {'id': transaction_instance.id, 'date': transaction_instance.date}
     if request.method == 'POST':
         formset = TransactionFormSet(request.POST, request.FILES)
         if formset.is_valid():
             pass
     else:
-        formset = TransactionFormSet()
+        formset = TransactionFormSet(initial=transaction_loaded)
     return render(request, 'transactions/manage.html', {'formset': formset})
 
 class TransactionUpdateView(generic.UpdateView):
