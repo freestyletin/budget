@@ -18,6 +18,7 @@ class Transaction(models.Model):
     account_to = models.ForeignKey('accounts.Account', null=True, blank=True, on_delete=models.SET_NULL, verbose_name="to account", related_name='transaction_as_account_to_set')
     address = models.ForeignKey('contacts.Address', null=True, blank=True, on_delete=models.SET_NULL, related_name='transaction_as_address_set', verbose_name="address")
 
+    @property
     def total_from_transactiondetail(self):
         return Transaction.objects.aggregate(total=Sum('transactiondetail_as_transaction_set__price_final'))
 
@@ -44,18 +45,21 @@ class TransactionDetail(models.Model):
     base_unit_custom = models.ForeignKey('units.Unit', blank=True, null=True, on_delete=models.SET_NULL, related_name="transactiondetail_as_base_unit_custom_set", verbose_name="custom base unit")
     unit_factor_custom = models.DecimalField('Custom Unit Factor', max_digits=10, decimal_places=5, blank=True, null=True)
 
+    @property
     def price_discounted_calculated(self):
         if self.price_regular_custom and self.discount_custom:
             return round(self.price_regular_custom - self.discount_custom, 5)
         else:
             return
 
+    @property
     def discount_calculated(self):
         if self.price_regular_custom and self.price_discounted_custom:
             return round(self.price_regular_custom - self.price_discounted_custom, 5)
         else:
             return
 
+    @property
     def price_regular_calculated(self):
         if self.price_discounted_custom and self.discount_custom:
             return round(self.price_discounted_custom + self.discount_custom, 5)
@@ -73,6 +77,7 @@ class TransactionDetail(models.Model):
         else:
             return
 
+    @property
     def price_extended(self):
         if self.price_final and self.quantity:
             return round(Decimal(self.price_final) * self.quantity, 5)
