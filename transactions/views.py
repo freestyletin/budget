@@ -27,7 +27,7 @@ class TransactionDetailView(generic.DetailView):
 #    return render(request, 'transactions/detail.html', {'transaction': p})
 
 def manage_transactions(request):
-    TransactionFormSet = formset_factory(TransactionForm)
+    TransactionFormSet = formset_factory(TransactionForm, extra=1)
     if request.method == 'POST':
         formset = TransactionFormSet(request.POST, request.FILES)
         if formset.is_valid():
