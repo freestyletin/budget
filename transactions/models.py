@@ -1,6 +1,6 @@
 import datetime
 from django.db import models
-from django.db.models import Avg, Count, Min, Sum, Max
+from django.db.models import Avg, Count, Min, Sum, Max, F
 from django.urls import reverse
 from decimal import *
 
