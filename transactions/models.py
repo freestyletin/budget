@@ -62,6 +62,7 @@ class TransactionDetail(models.Model):
         else:
             return
 
+    @property
     def price_final(self):
         if self.price_discounted_custom:
             return self.price_discounted_custom
