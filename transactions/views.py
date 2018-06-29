@@ -14,9 +14,16 @@ class TransactionListView(generic.ListView):
     template_name = 'transactions/index.html'
     context_object_name = 'transaction_list'
 
-class TransactionDetailView(generic.DetailView):
-    model = Transaction
-    template_name = 'transactions/detail.html'
+#class TransactionDetailView(generic.DetailView):
+#    model = Transaction
+#    template_name = 'transactions/detail.html'
+
+def transaction_detail(request, transaciton_id):
+    try:
+        p = Transaction.objects.get(pk=transaction_id)
+    except Transaction.DoesNotExist:
+        raise Http404("Transaction does not exist")
+    return render(request, 'Transactions/detail.html', {'transaction': p})
 
 class TransactionUpdateView(generic.UpdateView):
     model = Transaction
