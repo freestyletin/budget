@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.urls import reverse
+from decimal include *
 
 class Transaction(models.Model):
     date = models.DateTimeField('Date')
