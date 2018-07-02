@@ -19,6 +19,10 @@ class TransactionDetailView(generic.DetailView):
     model = Transaction
     template_name = 'transactions/detail.html'
 
+    def get_queryset(self):
+        queryset = super(TransactionDetailView, self).get_queryset()
+        return queryset
+
 #def transaction_detail(request, transaction_id):
 #    try:
 #        p = Transaction.objects.get(pk=transaction_id)
