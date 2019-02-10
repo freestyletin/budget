@@ -89,4 +89,4 @@ class TransactionDetail(models.Model):
         return reverse('transactions:detail-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return self.quantity
+        return self.item
