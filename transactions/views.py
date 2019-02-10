@@ -21,7 +21,7 @@ class TransactionDetailView(generic.DetailView):
 
     def get_queryset(self):
         queryset = super(TransactionDetailView, self).get_queryset()
-        return queryset.filter(bags_total='1')
+        return queryset
 
 #def transaction_detail(request, transaction_id):
 #    try:
