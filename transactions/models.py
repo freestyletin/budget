@@ -41,7 +41,7 @@ class TransactionDetail(models.Model):
     crv_per_custom = models.DecimalField('Custom CRV Per', max_digits=10, decimal_places=5, default=0)
     tax_per_custom = models.DecimalField('Custom Tax Per', max_digits=10, decimal_places=5, default=0)
     transaction = models.ForeignKey('Transaction', null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_transaction_set', verbose_name="transaction")
-    item = models.ForeignKey('items.Item', on_delete=models.SET_NULL, related_name='transactiondetail_as_item_set')
+    item = models.ForeignKey('items.Item', related_name='transactiondetail_as_item_set')
     generic_item = models.ForeignKey('items.GenericItem', blank=True, null=True, on_delete=models.SET_NULL, related_name='transactiondetail_as_generic_item_set', verbose_name="generic item")
     base_unit_custom = models.ForeignKey('units.Unit', blank=True, null=True, on_delete=models.SET_NULL, related_name="transactiondetail_as_base_unit_custom_set", verbose_name="custom base unit")
     unit_factor_custom = models.DecimalField('Custom Unit Factor', max_digits=10, decimal_places=5, blank=True, null=True)
